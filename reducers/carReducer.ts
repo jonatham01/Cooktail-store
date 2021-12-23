@@ -4,6 +4,14 @@ const initialState={
     products:[],
     carProducts:[],
     active:null,
+    prices:[
+        {idDrink: '11007',valueDolar:'10'},
+        {idDrink:'11118' ,valueDolar:'10'},
+        {idDrink: '17216',valueDolar:'10'},
+        {idDrink: '16158',valueDolar:'10'},
+        {idDrink: '12322',valueDolar:'10'},
+        {idDrink: '178332',valueDolar:'10'}
+    ]
 }
 
 export const carReducer= (state=initialState ,action)=>{

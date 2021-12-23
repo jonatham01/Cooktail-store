@@ -21,3 +21,8 @@ export const productsStartLoadinig = () =>{
 
     }
 }
+
+export const productoAddCar = (product:any)=>({
+    type:types.addProduct,
+    payload:product
+})
