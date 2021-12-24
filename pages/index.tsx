@@ -17,7 +17,7 @@ const index = () => {
         dispatch(productsStartLoadinig())
     },[dispatch])
 
-    const { products, carProducts } = useAppSelector( state => state.carProducts );
+    const { products, carProducts,carOrder } = useAppSelector( state => state.carProducts );
 
     let num= carProducts.length;
 /*
@@ -54,7 +54,7 @@ const index = () => {
             <section>
                 
             {
-                    carProducts.map(
+                    carOrder.map(
                         data=>(
                             <div key={data.idDrink} className="container-card"> 
 

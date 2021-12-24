@@ -26,3 +26,10 @@ export const productoAddCar = (product:any)=>({
     type:types.addProduct,
     payload:product
 })
+
+
+export const productoAddOrder = (product:any)=>({
+    type:types.addOrder,
+    payload:product
+})
+

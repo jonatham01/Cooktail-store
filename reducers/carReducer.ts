@@ -3,6 +3,7 @@ import {types} from '../types/types';
 const initialState={
     products:[],
     carProducts:[],
+    carOrder:[],
     active:null,
     prices:[
         {idDrink: '11007',valueDolar:'10'},
@@ -25,6 +26,11 @@ export const carReducer= (state=initialState ,action)=>{
             return{
                 ...state,
                 carProducts:[...state.carProducts, action.payload]
+            }
+        case types.addOrder:
+            return{
+                ...state,
+                carOrder:[...state.carOrder, action.payload]
             }
         case types.activeProduct:
             return{

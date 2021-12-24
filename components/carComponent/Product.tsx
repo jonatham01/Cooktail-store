@@ -3,7 +3,7 @@ import React,{useState} from 'react'
 import { useAppSelector } from '../../redux/hooks';
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from '../../redux/store'
-import { productoAddCar} from '../../actions/car';
+import { productoAddCar,productoAddOrder} from '../../actions/car';
 import { setServers } from 'dns/promises';
 
 
@@ -17,10 +17,10 @@ const addValue = (e) =>{
     setstate(e.target.value)
 }
 const addProduct =(product:any)=>{
-
     if(!carProducts.includes(product)){
-        product= {...product,amount:state}
+        //product= {...product,amount:state}
         dispatch(productoAddCar(product))
+        dispatch(productoAddOrder({...product,amount:state}))
         console.log(product)
     }
     
@@ -44,7 +44,8 @@ const addProduct =(product:any)=>{
                            
      <style jsx>{`
         body{padding:0; margin:0;}
-            .imagenes{width:100%} 
+            .imagenes{width:100%;
+            border-radius:12px} 
             .container{
                 width: 100%;
                 margin: 0;
@@ -67,7 +68,7 @@ const addProduct =(product:any)=>{
               }
               .container-card{
                   padding:16px 8px;
-                  border: black solid 1px;
+                  
                   border-radius:5px;
                   margin:8px;
                   background-color: rgb(250,250,250);
