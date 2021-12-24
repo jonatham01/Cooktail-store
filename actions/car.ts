@@ -13,7 +13,7 @@ export const productsStartLoadinig = () =>{
         try{
             const resp = await fetch( 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita' );
             const body = await resp.json();
-            console.log(body)
+            //console.log(body)
             try{
                 dispatch( productsLoaded(body.drinks) );
             }catch{console.log('mi prueba')}

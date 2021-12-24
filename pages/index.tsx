@@ -6,6 +6,8 @@ import {productsStartLoadinig, productoAddCar} from '../actions/car';
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from '../redux/store'
 
+import Product from '../components/carComponent/Product'
+
 
 const index = () => {
 
@@ -15,10 +17,10 @@ const index = () => {
         dispatch(productsStartLoadinig())
     },[dispatch])
 
-    const { products,prices, carProducts } = useAppSelector( state => state.carProducts );
+    const { products, carProducts } = useAppSelector( state => state.carProducts );
 
     let num= carProducts.length;
-
+/*
     const addProduct =(product:any)=>{
 
         if(!carProducts.includes(product)){
@@ -28,7 +30,8 @@ const index = () => {
         }
         
     }
-    const [stateNum, setstateNum] = useState(1)
+    */
+    //const [stateNum, setstateNum] = useState(1)
     
     return (
         <div className='container'>
@@ -39,23 +42,8 @@ const index = () => {
             {
                     products.map(
                         data=>(
-                            <div key={data.idDrink} className="container-card"> 
+                            <Product data={data} key={data.idDrink}  /> 
 
-                           
-                            <img src={data.strDrinkThumb} alt="" className='imagenes' />
-                            <div> 
-                           
-                             <strong>   Ingredients:</strong> <hr />
-                                 {data.strIngredient1}, {data.strIngredient2}, {data.strIngredient3}
-                            </div>
-                            <br /><strong>Price:</strong> <hr />
-                            {prices.map(price=>price.idDrink===data.idDrink &&(<p key={price.valueDolar}>{price.valueDolar} Dolars</p>))
-                                }
-                            
-                           <input type="text" />
-                            <button onClick={()=>{addProduct(data)}}>ADD TO CAR</button>
-                            </div>
-                            
                         )
                     )
                 }
@@ -72,6 +60,7 @@ const index = () => {
 
                            
                             <img src={data.strDrinkThumb} alt="" className='imagenes' />
+                            <p>Amount :{data.amount} </p>
                             <b className='card-name' >{data.strDrink}</b> <br />
                             
                             </div>
